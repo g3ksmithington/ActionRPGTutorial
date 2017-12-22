@@ -25,15 +25,17 @@ public class PlayerController : MonoBehaviour {
         myRigidbody = GetComponent<Rigidbody2D>();
 
         //dealing with moving from scene to scene
-        
-        /*if (!playerExist)
+        //some sort of logic problem here that automatically destroys the player gameObject on load, code appears identical to the example code, so the logic may be somewhere else
+        //Unity errors out no the CameraController.cs on a line that tries to reference the player gameObject and says it's destroyed
+        //commenting out the code block below causes the problem to go away, but I'm unsure why this is causing problems.
+        if (!playerExist)
         {
             playerExist = true;
             DontDestroyOnLoad(transform.gameObject);
         } else
         {
             Destroy(gameObject);
-        }*/
+        }
 
         
     }

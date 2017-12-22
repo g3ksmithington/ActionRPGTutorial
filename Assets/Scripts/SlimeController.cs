@@ -61,13 +61,14 @@ public class SlimeController : MonoBehaviour {
 			}
 		}
 
-		if(reloading)
+	    if(reloading)
 		{
 			waitToReload -= Time.deltaTime;
 			if(waitToReload < 0)
-			{
+			{   //this doesn't work as the object "player" has been destroyed and is unloaded from memory
                 //Player.SetActive(true);
                 Application.LoadLevel(Application.loadedLevel);
+                //Use SceneManager.LoadScene("Starting Area");
 
             }
 		}
@@ -77,9 +78,10 @@ public class SlimeController : MonoBehaviour {
     {
         if (other.gameObject.name == "Player")
         {
-            //Destroy(other.gameObject);
+            //Destroy(other.gameObject); //this is where the problem begins. This will unload the PC and all associated scripts
+            //the set active(false) allows it to be taken up by garbage collection, clearing it from memory
             //other.gameObject.SetActive(false);
-            reloading = true;
+            //reloading = true;
             //thePlayer.SetActive(true);
             //Application.LoadLevel(Application.loadedLevel);
         }

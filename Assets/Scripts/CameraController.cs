@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         if (!cameraExist)
         {
             cameraExist = true;
